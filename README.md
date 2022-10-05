@@ -1,6 +1,7 @@
 # SOPHIE-Feedback
 Modularized feedback for SOPHIE (Standardized Online Patient for Healthcare Interaction Education)
 
+Todo list
 - Splitting up categories (MVP and EEE)
 - More accurate and robust feedback
 - Come up with a modularized feedback system for SOPHIE
