@@ -1,6 +1,10 @@
 # SOPHIE-Feedback
 Modularized feedback for SOPHIE (Standardized Online Patient for Healthcare Interaction Education)
 
+Task Management
+- Generate Transcript
+- Pop up facilator link resources
+
 Todo list
 - Splitting up categories (MVP and EEE)
 - More accurate and robust feedback
