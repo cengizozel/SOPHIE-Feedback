@@ -1,17 +1,20 @@
 from flask import Flask, redirect, url_for, render_template
 import toy, helper
 
-# print(helper.get_dialogue('docs/dialogue.txt'))
-
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html', app_name="SOPHIE", responses=toy.random_string(10), dialogue=helper.get_dialogue('docs/dialogue.txt'))
+    return redirect(url_for('modules'))
 
-@app.route('/admin')
-def admin():
-    return redirect(url_for('home'))
+@app.route('/modules')
+def modules():
+    return render_template('modules.html', module1=helper.get_text('docs/module1.txt'), module2=helper.get_text('docs/module2.txt'), module3=helper.get_text('docs/module3.txt'))
+
+@app.route('/dialogue/<name>')
+def dialogue(name):
+    return render_template('dialogue.html', name=name, responses=toy.random_string(10), dialogue=helper.get_dialogue('docs/dialogue.txt'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)

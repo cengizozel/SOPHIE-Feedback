@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>SOPHIE</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+        <!-- <script src="{{url_for('static', filename='js/script.js')}}"></script> -->
+    </head>
+    <body>
+    <center>
+        <h1>SOPHIE</h1>
+        <h2>Pick a Module</h2><hr>
+
+        <div class="container-fluid">
+            <!-- 3 columns 3 rows -->
+            <div class="row row-cols-3 g-5">
+                <div class="col">
+                    <img src="{{url_for('static', filename='images/jason.jpg')}}" alt="Module 1" class="module_win">
+                </div>
+                <div class="col">
+                    <img src="{{url_for('static', filename='images/rachel.jpg')}}" alt="Module 2" class="module_win">
+                </div>
+                <div class="col">
+                    <img src="{{url_for('static', filename='images/john.jpg')}}" alt="Module 3" class="module_win">
+                </div>
+
+                <div class="col">
+                    <div class="module_description">
+                        <h3>Module 1: Jason</h3><br>
+                        <h5>{{module1}}</h5>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="module_description">
+                        <h3>Module 2: Rachel</h3><br>
+                        <h5>{{module2}}</h5>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="module_description">
+                        <h3>Module 3: John</h3><br>
+                        <h5>{{module3}}</h5>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <a href="{{url_for('dialogue', name='jason')}}"><button type="button" class="btn btn-primary btn-lg">Start Module 1</button></a>
+                </div>
+                <div class="col">
+                    <a href="{{url_for('dialogue', name='rachel')}}"><button type="button" class="btn btn-primary btn-lg">Start Module 2</button></a>
+                </div>
+                <div class="col">
+                    <a href="{{url_for('dialogue', name='john')}}"><button type="button" class="btn btn-primary btn-lg">Start Module 3</button></a>
+                </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    </center>
+    </body>
+</html>
