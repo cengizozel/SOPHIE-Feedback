@@ -28,8 +28,8 @@ img {
 }
 
 .module_win {
-    width: calc(1.42*560px);
-    height: calc(1.42*315px);
+    width: calc(1*560px);
+    height: calc(1*315px);
     border-radius: 10px;
 }
 
@@ -48,10 +48,10 @@ img {
 /* put it in a box that surrounds only the content */
 .module_description {
     background-color: lightgrey;
-    width: calc(1.42*560px);
-    height: calc(1.42*315px);
+    width: calc(1*560px);
+    height: calc(1*315px);
     border: 5px solid rgb(0, 0, 0);
-    padding: 50px;
+    padding: 30px;
     overflow: auto;
     border-radius: 10px;
 }
