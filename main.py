@@ -13,7 +13,7 @@ def modules():
 
 @app.route('/dialogue/<name>')
 def dialogue(name):
-    return render_template('dialogue.html', name=name, responses=toy.random_string(10), dialogue=helper.get_dialogue('docs/dialogue.txt'))
+    return render_template('dialogue.html', name=name, responses=helper.random_empathy('docs/empathy.txt', 5), dialogue=helper.get_dialogue('docs/dialogue.txt'))
 
 
 if __name__ == '__main__':
