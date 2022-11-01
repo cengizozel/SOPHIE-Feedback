@@ -1,9 +1,4 @@
-from cv2 import IMWRITE_PAM_FORMAT_GRAYSCALE
-
-
 import random
-
-from numpy import empty
 
 # function that returns text from a txt file
 def get_text(filename):
