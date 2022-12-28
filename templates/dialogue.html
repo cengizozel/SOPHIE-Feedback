@@ -45,9 +45,20 @@
                 <div class="collapse" id="collapseExample">
                     <div class="card card-body">
                         <div class="dialogue">
-                            {% for line in dialogue %}
-                            {% set line_split = line.split(":") %}
+                            {% for line in range(0, dialogue|length) %}
+                            {% set line_split = dialogue[line].split(":") %}
+                            
+                            {% set line_split = line_split|map('replace', '|', '')|list %}
+                            {% set line_split = line_split|map('replace', '(', '')|list %}
+                            {% set line_split = line_split|map('replace', ')', '')|list %}
+                            {% set line_split = line_split|map('replace', '[NEUTRAL]', '')|list %}
+                            
+                            {% if line in inference %}
+                            <p style="color: green;"><b>{{line_split[0]}}:</b> {{line_split[1]}}</p>
+                            {% else %}
                             <p><b>{{line_split[0]}}:</b> {{line_split[1]}}</p>
+                            {% endif %}
+                            
                             {% endfor %}
                         </div>
                     </div>
@@ -70,7 +81,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- make an unordered list of responses using a for loop -->
                     {% for response in responses %}
                     <li>{{response}}</li>
                     {% endfor %}
