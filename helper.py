@@ -16,6 +16,7 @@ def random_empathy(filename, n):
         return random.sample(f.readlines(), n)
 
 def get_inference(filename):
+    
     # Return a list of the line numbers where the line is not "NIL"
     with open(filename, 'r') as f:
         return [i for i, line in enumerate(f.readlines()) if line.strip() != 'NIL']

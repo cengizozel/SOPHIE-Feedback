@@ -1,47 +1,90 @@
 from fpdf import FPDF
-import dial_gen
+import dial
+import word_cloud
 
 def generate_pdf():
     pdf = FPDF()
 
-    # Add horizontal page
+    # Transcript page
     pdf.add_page()
-    pdf.set_font('times', size=24) # page dimensions are 210 x 297
+    pdf.set_font('arial', size=30, style='B') # page dimensions are 210 x 297
 
-    # Big rectangle
-    # pdf.rect(5, 4, 200, 290, style='D')
+    # Title
+    pdf.cell(190, 20, txt="Transcript", ln=1, align='C', border=True)    
+    # Add an empty line
+    pdf.ln(10)
+    pdf.set_font('arial', size=12)
+    # read a txt file and add it to a new cell
+    with open('docs/conversation-log/text.txt', 'r') as f:
+        for line in f.readlines():
+            pdf.multi_cell(190, 5, txt=line, ln=1, align='L', border=False)
 
-    # 4 equally spaced reactangles inside the big rectangle
-    pdf.rect(10, 6, 190, 70)
-    pdf.text(12, 16, "Transcript")
-    pdf.line(10, 20, 200, 20)
-    pdf.text(12, 30, "Transcript goes here.")
 
-    pdf.rect(10, 78, 190, 70)
-    pdf.text(12, 88, "Be Explicit - Average")
-    pdf.line(10, 92, 200, 92)
-    pdf.image(dial_gen.gauge(labels=['LOW','MEDIUM','HIGH','EXTREME'], \
+    # Be Explicit page
+    pdf.add_page()
+    pdf.set_font('arial', size=30, style='B')
+
+    # Title
+    pdf.cell(190, 20, txt="Be Explicit", ln=1, align='C', border=True)    
+    # Add an empty line
+    pdf.ln(10)
+    pdf.set_font('arial', size=12)
+
+    # Graphs
+    pdf.image(word_cloud.get_word_cloud("Hedge Word Cloud"), x=12, y=42, w=72, h=72)
+    pdf.image(dial.gauge(labels=['LOW','MEDIUM','HIGH','EXTREME'], \
                 colors=['#007A00','#0063BF','#FFCC00','#ED1C24'], \
                 arrow=3, title='Hedge Words (%)'),\
-                x=12, y=93, w=72, h=54)
+                x=12, y=118, w=72, h=54)
+    pdf.image(dial.gauge(labels=['LOW','MEDIUM','HIGH','EXTREME'], \
+                colors=['#007A00','#0063BF','#FFCC00','#ED1C24'], \
+                arrow=3, title='Speaking Rate'),\
+                x=12, y=176, w=72, h=54)
+    pdf.image(dial.gauge(labels=['LOW','MEDIUM','HIGH','EXTREME'], \
+                colors=['#007A00','#0063BF','#FFCC00','#ED1C24'], \
+                arrow=3, title='Reading Level'),\
+                x=12, y=232, w=72, h=54)
     
     
-    pdf.rect(10, 150, 190, 70)
-    pdf.text(12, 160, "Empower - Worse than Average")
-    pdf.line(10, 164, 200, 164)
-    pdf.image(dial_gen.gauge(labels=['LOW','MEDIUM','HIGH','EXTREME'], \
+    # Empower page
+    pdf.add_page()
+    pdf.set_font('arial', size=30, style='B')
+
+    # Title
+    pdf.cell(190, 20, txt="Empower", ln=1, align='C', border=True)    
+    # Add an empty line
+    pdf.ln(10)
+    pdf.set_font('arial', size=12)
+    
+    pdf.image(dial.gauge(labels=['LOW','MEDIUM','HIGH','EXTREME'], \
                 colors=['#007A00','#0063BF','#FFCC00','#ED1C24'], \
                 arrow=3, title='Questions Asked'),\
-                x=12, y=165, w=72, h=54)
+                x=12, y=42, w=72, h=54)
+    pdf.image(dial.gauge(labels=['LOW','MEDIUM','HIGH','EXTREME'], \
+                colors=['#007A00','#0063BF','#FFCC00','#ED1C24'], \
+                arrow=3, title='Open Ended Questions'),\
+                x=12, y=100, w=72, h=54)
 
 
-    pdf.rect(10, 222, 190, 70)
-    pdf.text(12, 232, "Empathize - Better than Average")
-    pdf.line(10, 236, 200, 236)
-    pdf.image(dial_gen.gauge(labels=['LOW','MEDIUM','HIGH','EXTREME'], \
+    # Empathize page
+    pdf.add_page()
+    pdf.set_font('arial', size=30, style='B')
+
+    # Title
+    pdf.cell(190, 20, txt="Empathize", ln=1, align='C', border=True)    
+    # Add an empty line
+    pdf.ln(10)
+    pdf.set_font('arial', size=12)
+    
+    pdf.image(dial.gauge(labels=['LOW','MEDIUM','HIGH','EXTREME'], \
                 colors=['#007A00','#0063BF','#FFCC00','#ED1C24'], \
                 arrow=3, title='Peronsal Pronouns'),\
-                x=12, y=237, w=72, h=54)
+                x=12, y=42, w=72, h=54)
+    pdf.image(word_cloud.get_word_cloud("Empathy Word Cloud"), x=12, y=100, w=72, h=72)
+    pdf.image(dial.gauge(labels=['LOW','MEDIUM','HIGH','EXTREME'], \
+                colors=['#007A00','#0063BF','#FFCC00','#ED1C24'], \
+                arrow=3, title='Average Empathy'),\
+                x=12, y=176, w=72, h=54)
 
     pdf.output("sophie_feedback.pdf")
 
