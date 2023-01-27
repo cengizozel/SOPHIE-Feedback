@@ -64,6 +64,20 @@ img {
     border-radius: 10px;
 }
 
+.feedback {
+   border: 5px solid rgb(0, 0, 0);
+   border-radius: 10px;
+   padding-top: 10px;
+   padding-bottom: 20px;
+   padding-right: 20px;
+   padding-left: 20px;
+
+   margin: 10px;
+}
+
+
+  
+
 /* vh refers to viewport height. Very useful! */ 
 /* .container_flex {        
     display: flex;       

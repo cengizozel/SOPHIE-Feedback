@@ -2,10 +2,6 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import time
 
-import matplotlib.ticker as ticker
-
-import matplotlib.ticker as ticker
-
 def create_turn_taking_panel(conversation):
     # create a mapping of speakers to numerical values
     speaker_map = {"Speaker 1": 0, "Speaker 2": 1}
@@ -22,8 +18,8 @@ def create_turn_taking_panel(conversation):
     ax.set_xlabel("Time (mm:ss)")
     ax.grid(True)
     ax.xaxis.set_major_formatter(ticker.FuncFormatter(lambda sec, _: time.strftime("%M:%S", time.gmtime(sec))))
-    ax.xaxis.set_major_locator(ticker.MultipleLocator(5))
-    ax.xaxis.set_minor_locator(ticker.FixedLocator([i for i in range(0, int(max(end_times)), 15)]))
+    ax.xaxis.set_major_locator(ticker.MultipleLocator(10))
+    ax.xaxis.set_minor_locator(ticker.FixedLocator([i for i in range(0, int(max(end_times)), 5)]))
     
     # plot segments for each turn
     for i in range(len(conversation)):
