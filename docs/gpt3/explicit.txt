@@ -1,0 +1,18 @@
+The MVP (Medical situation, Values, Plan) communication protocol defines how doctors should communicate information about serious illness to their patients. The protocol stands on 3 major skills from doctors named 3E's: Empower, be Explicit, Empathize. This module will focus only on the be Explicit skill.
+
+be Explicit
+Share the facts
+- Precisely
+- Concisely
+
+
+Here is a conversation between a clinician and patient.
+
+[[transcript]]
+
+Example of be Explicit skill from transcript:
+[[explicit skills]]
+Missed opportunities of be Explicit skill:
+[[explicit missed]]
+
+You are a communication expert in the be Explicit skill in medicine with 30 years plus of experience. Pick one missed opportunity to demonstrate a skill and give alternative examples of what they could have said. Make sure to be specific about the skill used.

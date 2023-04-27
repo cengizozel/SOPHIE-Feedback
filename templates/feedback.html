@@ -7,9 +7,12 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
-    <!-- <script src="{{url_for('static', filename='js/script.js')}}"></script> -->
+
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous">
+        </script>
 </head>
 
 <body>
@@ -19,44 +22,99 @@
                 style="font-size: 2rem; font-weight: 700; margin-left: 1rem; color: #fff;">SOPHIE</a>
             <div class="navbar-nav mx-auto"
                 style="text-align: center; position: absolute; left: 50%; transform: translateX(-50%); font-size: 1.75rem; font-weight: 500;">
-                <span class="nav-item nav-link active" style="color: #fff;">Feedback</span>
+                <span class="nav-item nav-link active" style="color: #fff;">Feedback for the {{module_type}}
+                    Module</span>
             </div>
         </nav>
     </div>
 
     <div class="container">
         <div class="row">
-            <div class="col-sm mx-auto feedback">
-                <center><h3>Feedback for Clinician on MVP Protocol</h3></center>
-                {{gpt3_response}}
+            <div class="col-sm dialogue-feedback">
+                <center>
+                    <h2><b>{% if three_es|length > 0 %}
+                            <span style="color: rgb(0, 175, 0); text-decoration: underline rgb(0, 175, 0);">Here is what
+                                you did well</span>
+                            {% else %}
+                            <span style="color: rgb(220, 0, 0); text-decoration: underline rgb(220, 0, 0);">No MVP
+                                skills observed</span>
+                            {% endif %}</b></h2>
+                </center><br>
+
+                {% for e_shown in three_es %}
+                    {% set sophie_line = e_shown[2].split(":") %}
+                    {% set clinician_line = e_shown[3].split(":") %}
+                
+                    {% if loop.index == 1 or e_shown[0] != loop.previtem[0] %}
+                        {% if loop.index != 1 %}
+                            <hr>
+                        {% endif %}
+                        <h4><b>{{e_shown[0]}}:</b></h4><br>
+                    {% endif %}
+                
+                    <b>{{sophie_line[0]}}:</b> {{sophie_line[1]}}<br>
+                    <b>{{clinician_line[0]}}:</b> {{clinician_line[1]}}<br><br>
+                {% endfor %}
+                
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm feedback">
-                <center><h3>3Es Applied</h3></center>
-                <li><b>Empower:</b> {{empower}}</li>
-                <li><b>Be Explicit:</b> {{explicit}}</li>
-                <li><b>Empathize:</b> {{empathy}}</li>
-            </div>
-            <div class="col-sm feedback">
-                <center><h3>Missed opportunities</h3></center>
-                <!-- Make a foor loop for {{missed_opportunities}} -->
-                {% for mo in missed_opportunities %}
-                <li>{{mo}}</li>
+            <div class="col-sm dialogue-feedback">
+                <center>
+                    <h2><b>{% if missed_opportunities|length > 0 %}
+                            <!-- if  {{module_type}} is master -->
+                            {% if module_type == "Master" %}
+                                <span style="color: rgb(220, 0, 0); text-decoration: underline rgb(220, 0, 0);">Here are more opportunities </span>
+                            {% else %}
+                                <span style="color: rgb(220, 0, 0); text-decoration: underline rgb(220, 0, 0);">Here are more opportunities to use  {{module_type}}</span>
+                            {% endif %}
+
+                            {% else %}
+                            <span style="color: rgb(0, 175, 0); text-decoration: underline rgb(0, 175, 0);">No missed
+                                opportunities found!</span>
+                            {% endif %}</b></h2>
+                </center><br>
+
+
+                {% for opportunity in missed_opportunities %}
+                    {% set sophie_line = opportunity[0].split(":") %}
+                    {% set clinician_line = opportunity[1].split(":") %}
+
+                    {% if loop.index == 1 or opportunity[2] != loop.previtem[2] %}
+                        {% if loop.index != 1 %}
+                            <hr>
+                        {% endif %}
+                        <h4><b>{{opportunity[2]}}:</b></h4><br>
+                    {% endif %}                    
+
+                    <b>{{sophie_line[0]}}:</b> {{sophie_line[1]}}<br>
+                    <b>{{clinician_line[0]}}:</b> {{clinician_line[1]}}<br><br>
+
                 {% endfor %}
             </div>
             <div class="row">
+                <div class="col-sm mx-auto feedback" id="feedback-container">
+                    <div class="container mt-3">
+                        <div id="demo" class="collapse">
+                            <center>
+                                <h2><b>Suggestion for Clinician</b></h2>
+                            </center><br>
+                            {% for gpt3_response in gpt3_response_list %}
+                            {{gpt3_response}}<br>
+                            {% endfor %}<br>
+                        </div>
+                    </div>
+                </div>
+                <center><button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#demo"
+                        id="summary-feedback-button" onclick="toggleSummaryFeedbackButton()">View Suggestion</button></center>
+            </div>
+            <div class="row">
                 <div class="col-sm text-center">
-                    <br><a href="{{url_for('full_feedback')}}"><button type="button"
-                    class="btn btn-primary btn-xlg">View Extended Feedback</button></a>
+                    <br><a href="{{url_for('full_feedback')}}"><button type="button" onclick={{full_feedback_func()}}
+                            class="btn btn-primary btn-xlg">View Full Feedback</button></a>
+                    <br><br>
                 </div>
             </div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
-        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
-        crossorigin="anonymous"></script>
 
 </body>
 

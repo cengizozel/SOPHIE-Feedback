@@ -1,9 +1,19 @@
 from flask import Flask, redirect, url_for, render_template, send_from_directory
+from flask_caching import Cache
 import helper.helper as helper
-import helper.gpt3_feedback as gpt3_feedback
+import helper.gpt3_feedback as gpt3_feedack
+import pdf_generation.compute_metrics as compute_metrics
 import pdf_generation.pdf_gen as pdf_gen
 
+cache = Cache(config={'CACHE_TYPE': 'null'})
+
+
+def create_pdf():
+    pdf_gen.generate_pdf(processed_file, gpt3_response, module_type, three_es, compute_metrics.main())
+
+
 app = Flask(__name__)
+cache.init_app(app)
 
 
 @app.route('/')
@@ -11,49 +21,62 @@ def home():
     return redirect(url_for('feedback'))
 
 
-@app.route('/modules')
-def modules():
-    PATH = 'docs/modules/'
-    module1 = helper.get_text(PATH+'module1.txt')
-    module2 = helper.get_text(PATH+'module2.txt')
-    module3 = helper.get_text(PATH+'module3.txt')
-
-    return render_template('modules.html', module1=module1, module2=module2, module3=module3)
-
-
-@app.route('/dialogue/<name>')
-def dialogue(name):
-    global processed_file, inference_file
-    responses = helper.random_empathy('docs/dialogue/empathy.txt', 5)
-    dialogue = helper.get_dialogue(processed_file)
-    inference = helper.get_inference(inference_file, processed_file)
-
-    return render_template('dialogue.html', name=name, responses=responses, dialogue=dialogue, inference=inference)
-
-
 @app.route('/feedback')
 def feedback():
-    global processed_file, inference_file, empower, explicit, empathy, highlights, missed_opportunities, gpt3_response
-    return render_template('feedback.html', empower=empower, explicit=explicit, empathy=empathy, missed_opportunities=missed_opportunities, gpt3_response=gpt3_response)
+    with app.app_context():
+        cache.clear()
+
+    global processed_file, inference_file, three_es, missed_opportunities, gpt3_response, gpt3_response_list, full_feedback
+
+    if module_type != "Master":
+        missed_opportunities = [x for x in missed_opportunities if x[2] == module_type]
+        three_es = [x for x in three_es if x[0] == module_type]
+
+    return render_template('feedback.html', module_type=module_type, three_es=three_es, missed_opportunities=missed_opportunities, gpt3_response_list=gpt3_response_list, full_feedback_func=full_feedback)
 
 
 @app.route('/full-feedback')
 def full_feedback():
-    global processed_file, gpt3_response
-    pdf_gen.generate_pdf(processed_file, gpt3_response, highlights, helper.create_json())
-    return send_from_directory('docs/feedback', 'sophie_feedback.pdf')
+    response = send_from_directory('docs/feedback', 'sophie_feedback.pdf')
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
+    return response
 
 
 if __name__ == '__main__':
-    global text_file, processed_file, inference_file, gpt3_response
-    global empower, explicit, empathy, highlights, missed_opportunities
+    global text_file, processed_file, inference_file, obligations_file, gpt3_response, gpt3_response_list
+    global three_es, missed_opportunities
+    global module_type
+
+    # 1 == Empathy
+    # 2 == Explicit
+    # 3 == Empowering
+    # 4 == Master
+    module_type = "Master"
     
-    inference_file = "docs/conversation-log/inference.txt"
-    text_file = "docs/conversation-log/text.txt"
-    processed_file = "docs/conversation-log/text_processed.txt"
+    # root_path = "docs/conversation-log-obligations/"
+    root_path = "E:/SOPHIE/eta/io/conversation-log/0/"
+    inference_file = root_path+"pragmatic.txt"
+    obligations_file = root_path+"obligations.txt"
+    text_file = root_path+"text.txt"
+    processed_file = root_path+"text_processed.txt"
+
     helper.convert_text(text_file, processed_file)
-    empower, explicit, empathy, highlights, missed_opportunities = helper.get_inference(inference_file, processed_file)
+    three_es, missed_opportunities = helper.get_inference(processed_file, inference_file, obligations_file)
     
-    # gpt3_response = gpt3_feedback.get_feedback('docs/conversation-log/text.txt')
-    gpt3_response = "Well done, clinician! You used the 3E skillset to communicate effectively with your patient. You successfully empowered them by listening and asking first, and then being explicit with the facts. You empathized with your patient by acknowledging the difficulty of the conversation and validating their feelings. Great job! To take your communication skills even further, you could try to anticipate more of the patient's needs and concerns, and provide further emotional support."
+    with open(processed_file, 'r') as f:
+        processed_file_str = f.read()
+
+    chars_replace = {"“": "\"", "”": "\"", "’": "'", "‘": "'"}
+
+    gpt3_response = gpt3_feedack.run_gpt(processed_file_str, three_es, missed_opportunities, module_type)
+
+    for char in chars_replace:
+        gpt3_response = gpt3_response.replace(char, chars_replace[char])
+
+    gpt3_response_list = gpt3_response.split("\n")
+
+    create_pdf()
+    
     app.run(debug=True)

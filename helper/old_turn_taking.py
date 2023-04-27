@@ -4,7 +4,6 @@ import io
 from PIL import Image
 
 def get_tt_graph(x_list):
-    print("x_list:", x_list)
     plt.figure(figsize=(10, 3))
     plt.title("Turn Taking", fontsize=16, fontweight='bold')
 

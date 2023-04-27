@@ -1,0 +1,151 @@
+The MVP (Medical situation, Values, Plan) communication protocol defines how doctors should communicate information about serious illness to their patients. The protocol stands on 3 major skills from doctors named 3E's: Empower, be Explicit, Empathize.
+
+A. Empower
+- Listen
+- Ask first
+- Calibrate
+
+B. be Explicit
+Share the facts
+- Precisely
+- Concisely
+
+C. Empathize
+Emotion
+- Anticipate & Recognize
+- Validate & Explore
+
+
+Here is a conversation between a clinician and patient.
+
+Sophie Hallman: Hi, doctor. I'm meeting with you today to help get some questions answered about my condition.
+Sophie Hallman: I'm really worried because my pain has been getting worse lately. Can you tell me why that might be happening?
+Dr. Tom Carroll: Sophie, you look very anxious and I think that is completely normal and I am here to here to help answer your questions and get you in the right frame of mind.
+Sophie Hallman: Thank you, dr. Carroll. That's very kind of you. Now, could you tell me why my pain has been getting worse?
+Dr. Tom Carroll: Yes, but before I do, SOPHIE, I want to make sure you are ready for it. It is it is pretty bad news.
+Sophie Hallman: I'm ready. Please tell me what's going on.
+Dr. Tom Carroll: Sophie and I really, really am so sorry that this has happened to you, but the results of your chest x-rays showed that your cancer is getting worse.
+Sophie Hallman: Oh my god. I can't believe this is happening. What do I do now?
+Dr. Tom Carroll: Well, if you want, we can go over the prognosis in a little more detail. I just want to check in and see how you are taking this this terrible news.
+Sophie Hallman: I'm okay. I'm just worried about what the future holds. Could you please tell me what my next steps should be?
+Dr. Tom Carroll: Well, your next steps really depend on what your treatment goals are. Maybe if you are ready, we could talk about those.
+Sophie Hallman: Sure, i'd love to. My treatment goals are to spend time with my grandson and to maintain a high quality of life.
+Dr. Tom Carroll: Why is maintaining a hike what is maintaining a high quality of life mean to you?
+Sophie Hallman: To me, maintaining a high quality of life means being able to do the activities I enjoy, spending time with my family and friends, and having the energy to do the things I love.
+Dr. Tom Carroll: Yes, I would say that that is that is how I feel about it too. And if you want to have a high quality of life, I think that we would probably want to pursue a certain treatment option.
+Sophie Hallman: I understand my condition is bad, but I want you to be honest with me. How long do you think I have?
+Dr. Tom Carroll: Based on the speed at which your cancer is spreading throughout your body, SOPHIE, I would say two months to a year.
+Sophie Hallman: That's not a lot of time. I had an uncle fred who outlived his prognosis. Do you think I could do the same?
+Dr. Tom Carroll: I hope so, SOPHIE. I really, really do. And maybe you will be one of the lucky ones. But even if your life is prolonged a little bit, I am afraid this cancer is terminal.
+Sophie Hallman: How can you be so sure about my prognosis? I have an uncle fred who outlived his prognosis, so I thought anything was possible.
+Dr. Tom Carroll: Nobody has a crystal ball and miracles do happen. However, based on people like you, patience of mine in the past that have had your cancer, I am afraid the prognosis is what it is.
+Sophie Hallman: That's ridiculous. I don't accept that. I know I have more time than that. I have an uncle fred who outlived his prognosis. I want to know more about what I can do to give me a better chance.
+Dr. Tom Carroll: What kind of cancer did your uncle fred have?
+Sophie Hallman: He had lung cancer, just like me.
+Dr. Tom Carroll: I see, I see. So your prognosis, SOPHIE, is that your cancer has spread to your lymph nodes, so it really is unstoppable at this point.
+Sophie Hallman: I understand, but I am still determined to fight this. Is there anything else I can do to help improve my situation?
+Dr. Tom Carroll: There are a couple of options based on what you told me about your treatment goals. We could do an aggressive chemotherapy which may or may not extend your life, but will definitely make that life. Uh, not really that high quality. Or we could pursue comfort care.
+Sophie Hallman: I see. Well, I understand that I have to make a tough decision. I just want to make sure I'm there for my grandson. Do you think any of these options will help me do that?
+Dr. Tom Carroll: Well, if you want to be with your grandson and be able to spend good quality time with them, I would say comfort care. But if you want to just spend a longer time with your grandson, regardless of how you feel, then perhaps you should consider chemotherapy.
+Sophie Hallman: Comfort care sounds like a good option for me, but I'm not sure how it works. Can you explain a bit more?
+Dr. Tom Carroll: Yes, of course. Comfort care is very, very easy. We get you nice and comfortable in a hospital bed in your home or a family member's home, perhaps at your grandson's house. And we have a nurse that regularly checks in on you and administers medications to treat the symptoms of the cancer.
+Sophie Hallman: That sounds like a good option for me. Should I get comfort care?
+Dr. Tom Carroll: That is up to you and your family to make as your doctor. I can only give you treatment options and do my best as a physician to make sure that the treatment plan that we pursue is the one you really, really want.
+Sophie Hallman: I understand that. What are my options for treatment?
+Dr. Tom Carroll: For treatment, we could do comfort care where we treat the symptoms like the pain that you have been feeling due to the cancer growing in your lungs. Or we could do a chemotherapy based treatment, perhaps radiation therapy where we try to attack the cancer cells and slow their growth.
+Sophie Hallman: I'm really not sure about the chemotherapy, it sounds too painful and exhausting for me at this stage. Do you think comfort care would be enough?
+Dr. Tom Carroll: I think comfort care would be enough, but it is not. You need to realize those SOPHIE comfort care is not a treatment to treat the cancer. You will not get better if you do comfort care, but you will feel better.
+Sophie Hallman: I understand. I think I'm going to go with comfort care then.
+Dr. Tom Carroll: I think that is a good decision, but I really would recommend that you talk everything over with your family, let everything sink in, and that we have another discussion about this in the near future.
+Sophie Hallman: Thank you for all your help and for giving me more information about my options. I need to take some time to think about these more and also talk to my family.
+Dr. Tom Carroll: I think that is great. And if you would like, I would be more than happy to be there with you to convey the prognosis and break this. Also, terrible news, SOPHIE. So terrible. I am so, so sorry.
+Sophie Hallman: Thank you, doctor. I appreciate your understanding and your help. I think i'll take some time to talk to my family.
+Dr. Tom Carroll: Ok, I really think that is a good idea. Umm, sometimes this news can sneak up on you, so please my you have my cell phone number. Feel free to reach out at any time.
+Sophie Hallman: Thank you. I will.
+Dr. Tom Carroll: And would it be alright with you if I do not hear from you in about a week? Is it alright if I have my receptionist reach out just to check in on things?
+Sophie Hallman: Yes, I think that would be great. I'm sure I will have more questions.
+Dr. Tom Carroll: And I am sure I will have some answers for you, or at least do the best I can to have a conversation with you about how we can, how we can tackle your treatment.
+Sophie Hallman: That sounds great. Thank you, doctor, for all of your help.
+Dr. Tom Carroll: You are welcome, SOPHIE. It is been a real pleasure to be your physician and and a real joy your wonderful human being. And again, I am, I am so sorry that this has happened to you.
+Sophie Hallman: Thank you.
+Dr. Tom Carroll: Alright, well, if that is all, I think you should.
+Sophie Hallman: Yes, I think I'm done talking about my condition for now.
+Dr. Tom Carroll: Ok, great. Well, I will see you soon, SOPHIE.
+Sophie Hallman: Thank you, doctor.
+Dr. Tom Carroll: Goodbye.
+Sophie Hallman: Thank you for taking the time to talk with me today. Bye.
+
+
+Examples of Empower skill from transcipt:
+Sophie Hallman: I'm okay. I'm just worried about what the future holds. Could you please tell me what my next steps should be?
+Dr. Tom Carroll: Well, your next steps really depend on what your treatment goals are. Maybe if you are ready, we could talk about those.
+
+
+Missed opportunities of Empower skill:
+Nothing.
+
+Example of be Explicit skill from transcript:
+Sophie Hallman: I'm ready. Please tell me what's going on.
+Dr. Tom Carroll: Sophie and I really, really am so sorry that this has happened to you, but the results of your chest x-rays showed that your cancer is getting worse.
+
+Sophie Hallman: I understand my condition is bad, but I want you to be honest with me. How long do you think I have?
+Dr. Tom Carroll: Based on the speed at which your cancer is spreading throughout your body, SOPHIE, I would say two months to a year.
+
+Sophie Hallman: That's not a lot of time. I had an uncle fred who outlived his prognosis. Do you think I could do the same?
+Dr. Tom Carroll: I hope so, SOPHIE. I really, really do. And maybe you will be one of the lucky ones. But even if your life is prolonged a little bit, I am afraid this cancer is terminal.
+
+Sophie Hallman: He had lung cancer, just like me.
+Dr. Tom Carroll: I see, I see. So your prognosis, SOPHIE, is that your cancer has spread to your lymph nodes, so it really is unstoppable at this point.
+
+Sophie Hallman: I understand, but I am still determined to fight this. Is there anything else I can do to help improve my situation?
+Dr. Tom Carroll: There are a couple of options based on what you told me about your treatment goals. We could do an aggressive chemotherapy which may or may not extend your life, but will definitely make that life. Uh, not really that high quality. Or we could pursue comfort care.
+
+Sophie Hallman: I see. Well, I understand that I have to make a tough decision. I just want to make sure I'm there for my grandson. Do you think any of these options will help me do that?
+Dr. Tom Carroll: Well, if you want to be with your grandson and be able to spend good quality time with them, I would say comfort care. But if you want to just spend a longer time with your grandson, regardless of how you feel, then perhaps you should consider chemotherapy.
+
+Sophie Hallman: Comfort care sounds like a good option for me, but I'm not sure how it works. Can you explain a bit more?
+Dr. Tom Carroll: Yes, of course. Comfort care is very, very easy. We get you nice and comfortable in a hospital bed in your home or a family member's home, perhaps at your grandson's house. And we have a nurse that regularly checks in on you and administers medications to treat the symptoms of the cancer.
+
+Sophie Hallman: That sounds like a good option for me. Should I get comfort care?
+Dr. Tom Carroll: That is up to you and your family to make as your doctor. I can only give you treatment options and do my best as a physician to make sure that the treatment plan that we pursue is the one you really, really want.
+
+Sophie Hallman: I understand that. What are my options for treatment?
+Dr. Tom Carroll: For treatment, we could do comfort care where we treat the symptoms like the pain that you have been feeling due to the cancer growing in your lungs. Or we could do a chemotherapy based treatment, perhaps radiation therapy where we try to attack the cancer cells and slow their growth.
+
+Sophie Hallman: I'm really not sure about the chemotherapy, it sounds too painful and exhausting for me at this stage. Do you think comfort care would be enough?
+Dr. Tom Carroll: I think comfort care would be enough, but it is not. You need to realize those SOPHIE comfort care is not a treatment to treat the cancer. You will not get better if you do comfort care, but you will feel better.
+
+
+Missed opportunities of be Explicit skill:
+Nothing.
+
+Examples of the Empathize skill from transcript:
+Sophie Hallman: I'm ready. Please tell me what's going on.
+Dr. Tom Carroll: Sophie and I really, really am so sorry that this has happened to you, but the results of your chest x-rays showed that your cancer is getting worse.
+
+Sophie Hallman: That's not a lot of time. I had an uncle fred who outlived his prognosis. Do you think I could do the same?
+Dr. Tom Carroll: I hope so, SOPHIE. I really, really do. And maybe you will be one of the lucky ones. But even if your life is prolonged a little bit, I am afraid this cancer is terminal.
+
+Sophie Hallman: How can you be so sure about my prognosis? I have an uncle fred who outlived his prognosis, so I thought anything was possible.
+Dr. Tom Carroll: Nobody has a crystal ball and miracles do happen. However, based on people like you, patience of mine in the past that have had your cancer, I am afraid the prognosis is what it is.
+
+Sophie Hallman: Thank you for all your help and for giving me more information about my options. I need to take some time to think about these more and also talk to my family.
+Dr. Tom Carroll: I think that is great. And if you would like, I would be more than happy to be there with you to convey the prognosis and break this. Also, terrible news, SOPHIE. So terrible. I am so, so sorry.
+
+Sophie Hallman: That sounds great. Thank you, doctor, for all of your help.
+Dr. Tom Carroll: You are welcome, SOPHIE. It is been a real pleasure to be your physician and and a real joy your wonderful human being. And again, I am, I am so sorry that this has happened to you.
+
+
+Missed Opportunities of Empathize skill here:
+Sophie Hallman: I'm really worried because my pain has been getting worse lately. Can you tell me why that might be happening?
+Dr. Tom Carroll: Sophie, you look very anxious and I think that is completely normal and I am here to here to help answer your questions and get you in the right frame of mind.
+
+Sophie Hallman: Oh my god. I can't believe this is happening. What do I do now?
+Dr. Tom Carroll: Well, if you want, we can go over the prognosis in a little more detail. I just want to check in and see how you are taking this this terrible news.
+
+Sophie Hallman: I understand. I think I'm going to go with comfort care then.
+Dr. Tom Carroll: I think that is a good decision, but I really would recommend that you talk everything over with your family, let everything sink in, and that we have another discussion about this in the near future.
+
+
+
+You are a communication expert in Empower, be Explicit and Empathize in medicine with 30 years plus of experience. Pick one missed opportunity to demonstrate a skill and give alternative examples of what they could have said. Make sure to be specific about the skills used.

@@ -3,8 +3,6 @@ import re
 import json
 
 # function that returns text from a txt file
-
-
 def get_text(filename):
     with open(filename, 'r') as f:
         return f.read()
@@ -16,7 +14,7 @@ def get_text(filename):
 # Write the new text to a new file and call it "text_processed.txt"
 def convert_text(filename, output_filename):
     with open(filename, 'r') as f:
-        to_capitalize = [[" i ", " I "], ["i'm", "I'm"], ["sophie", "SOPHIE"]]
+        to_capitalize = [[" i ", " I "], ["i'm", "I'm"], ["i've", "I've"], ["sophie", "SOPHIE"]]
         lines = f.readlines()
         for i, line in enumerate(lines):
             # Removing last character (space) from name
@@ -50,73 +48,49 @@ def convert_text(filename, output_filename):
         f.writelines(lines)
 
 # function that takes a txt filename as input and returns a list of lines in the file without the newline character
-
-
 def get_dialogue(filename):
     with open(filename, 'r') as f:
         return [line.strip() for line in f.readlines()]
 
-# function that takes a txt filename and a number as input and returns n random lines from the text and returns them as a list
 
-
-def random_empathy(filename, n):
-    with open(filename, 'r') as f:
-        return random.sample(f.readlines(), n)
-
-
-def get_inference(inference, text):
+def get_inference(text, inference, obligations, use_model=False):
     # Inference is the file that contains the inference results
     # Text is the file that contains the conversation log
     with open(text, 'r') as f:
         text_lines = f.readlines()
-    empower, explicit, empathy, missed_opportunities = "", "", "", []
-    highlights = [0, 0, 0]
-    # Return a list of the line numbers where the line is not "NIL"
     with open(inference, 'r') as f:
         inf_lines = f.readlines()
-        for i, line in enumerate(inf_lines):
+    with open(obligations, 'r') as f:
+        obligations_lines = f.readlines()
+    three_es, missed_opportunities = [], []
+
+    for i, line in enumerate(inf_lines):
+        if "EMPOWERING" in line:
+            three_es.append(["Empowering", i, text_lines[i-1], text_lines[i]])
+        if "EXPLICIT" in line:
+            three_es.append(["Explicit", i, text_lines[i-1], text_lines[i]])
+        if "EMPATHETIC" in line:
+            three_es.append(["Empathy", i, text_lines[i-1], text_lines[i]])
+
+        # Sort three_es by the first element (inference type)
+        # The order should be Empowering, Explicit, Empathy
+        order = {"Empathy": 0, "Explicit": 1, "Empowering": 2}
+        three_es = sorted(three_es, key=lambda x: order[x[0]])
+
+    for i, line in enumerate(obligations_lines):
+        if i < len(obligations_lines)-1:
             if "EMPOWERING" in line:
-                empower = text_lines[i].split(":")[1]
-                highlights[0] = i
+                if "NIL" in inf_lines[i+1]:
+                    missed_opportunities.append([text_lines[i], text_lines[i+1], "Empowering"])
             elif "EXPLICIT" in line:
-                explicit = text_lines[i].split(":")[1]
-                highlights[1] = i
+                if "NIL" in inf_lines[i+1]:
+                    missed_opportunities.append([text_lines[i], text_lines[i+1], "Explicit"])
             elif "EMPATHETIC" in line:
-                empathy = text_lines[i].split(":")[1]
-                highlights[2] = i
-            elif "NIL" in line and not "Sophie" in text_lines[i]:
-                # Make sure we don't go out of bounds
-                if i+8 < len(inf_lines):
-                    if "NIL" in inf_lines[i+2] and "NIL" in inf_lines[i+4] and "NIL" in inf_lines[i+6] and "NIL" in inf_lines[i+8]:
-                        missed_opportunities.append(
-                            text_lines[i+8].split(":")[1])
+                if "NIL" in inf_lines[i+1]:
+                    missed_opportunities.append([text_lines[i], text_lines[i+1], "Empathy"])
 
-    return empower, explicit, empathy, highlights, missed_opportunities
+    # remove items from missed_opportunities where element[1] contains a question mark
+    missed_opportunities = [x for x in missed_opportunities if "?" not in x[1]]
+    missed_opportunities = sorted(missed_opportunities, key=lambda x: order[x[2]])
 
-
-def create_json():
-    data = {
-        "transcript": {
-            "empower": [],
-            "explicit": [],
-            "emapthy": []
-        },
-        "empower": {
-            "questions_asked": 5,
-            "open_ended": 6,
-            "turn_taking": []
-        },
-        "explicit": {
-            "hedge_word_cloud": ["a", "b", "c"],
-            "hedge_words": [19, 158],
-            "speaking_rate": 40,
-            "reading_level": 5
-        },
-        "empathize": {
-            "personal_pronouns": [29, 158],
-            "empathy_word_cloud": ["a", "b", "c"],
-            "average_empathy": 50
-        }
-    }
-
-    return json.dumps(data)
+    return three_es, missed_opportunities

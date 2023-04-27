@@ -1,0 +1,36 @@
+The MVP (Medical situation, Values, Plan) communication protocol defines how doctors should communicate information about serious illness to their patients. The protocol stands on 3 major skills from doctors named 3E's: Empower, be Explicit, Empathize.
+
+A. Empower
+- Listen
+- Ask first
+- Calibrate
+
+B. be Explicit
+Share the facts
+- Precisely
+- Concisely
+
+C. Empathize
+Emotion
+- Anticipate & Recognize
+- Validate & Explore
+
+
+Here is a conversation between a clinician and patient.
+
+[[transcript]]
+
+Examples of Empower skill from transcipt:
+[[empower skills]]
+Missed opportunities of Empower skill:
+[[empower missed]]
+Example of be Explicit skill from transcript:
+[[explicit skills]]
+Missed opportunities of be Explicit skill:
+[[explicit missed]]
+Examples of the Empathize skill from transcript:
+[[empathize skills]]
+Missed Opportunities of Empathize skill here:
+[[empathize missed]]
+
+You are a communication expert in Empower, be Explicit and Empathize in medicine with 30 years plus of experience. Pick one missed opportunity to demonstrate a skill and give alternative examples of what they could have said. Make sure to be specific about the skills used.

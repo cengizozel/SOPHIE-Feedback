@@ -4,32 +4,21 @@ import pandas as pd
 import io
 from PIL import Image
 
-def get_word_cloud(title): 
-    # Reads 'Youtube04-Eminem.csv' file
-    df = pd.read_csv(r"Youtube04-Eminem.csv", encoding ="latin-1")
-    
-    comment_words = ''
-    stopwords = set(STOPWORDS)
-    
-    # iterate through the csv file
-    for val in df.CONTENT:
-        
-        # typecaste each val to string
-        val = str(val)
-    
-        # split the value
-        tokens = val.split()
-        
-        # Converts each token into lowercase
-        for i in range(len(tokens)):
-            tokens[i] = tokens[i].lower()
-        
-        comment_words += " ".join(tokens)+" "
+def get_word_cloud(title, words_list):
+    words = " ".join(words_list)
+    # print("Generating word cloud for " + str(words))
+
+    # I don't want to use default stopwords
+    stopwords = set()
+
+    # if words_list is empty, return empty image
+    if len(words_list) == 0:
+        return Image.new('RGB', (800, 800), color = 'white')
     
     wordcloud = WordCloud(width = 800, height = 800,
                     background_color ='white',
                     stopwords = stopwords,
-                    min_font_size = 20).generate(comment_words)
+                    min_font_size = 20).generate(words)
     
     # plot the WordCloud image                      
     plt.figure(figsize = (8, 8), facecolor = None)
