@@ -4,6 +4,7 @@ import helper.helper as helper
 import helper.gpt3_feedback as gpt3_feedack
 import pdf_generation.compute_metrics as compute_metrics
 import pdf_generation.pdf_gen as pdf_gen
+from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
 
 cache = Cache(config={'CACHE_TYPE': 'null'})
 
@@ -62,8 +63,17 @@ if __name__ == '__main__':
     text_file = root_path+"text.txt"
     processed_file = root_path+"text_processed.txt"
 
+    skill_model_url = "bkane2/skills-trainer"
+    skill_model = AutoModelForSequenceClassification.from_pretrained(skill_model_url, problem_type="multi_label_classification")
+    skill_tokenizer = AutoTokenizer.from_pretrained(skill_model_url, problem_type="multi_label_classification")
+    skill_classifier = pipeline("text-classification", model=skill_model, tokenizer=skill_tokenizer, return_all_scores=True)
+
     helper.convert_text(text_file, processed_file)
-    three_es, missed_opportunities = helper.get_inference(processed_file, inference_file, obligations_file)
+    three_es, missed_opportunities = helper.get_inference(
+        processed_file,
+        inference_file,
+        obligations_file,
+        skill_classifier=skill_classifier)
     
     with open(processed_file, 'r') as f:
         processed_file_str = f.read()
