@@ -1,21 +1,10 @@
-import random
 import re
-import json
-# from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
 
 # function that returns text from a txt file
 def get_text(filename):
     with open(filename, 'r') as f:
         return f.read()
     
-
-# function to classify skills given a text string
-def classify_skills(sentence, classifier):
-    skill_enum = ["empowering", "explicit", "empathetic"]
-    skills = classifier(sentence)[0]
-    skills = [skill[1] for skill in zip(skills, skill_enum) if skill[0]['score'] > 0.5]
-    return skills
-
 
 # function to take the union of two lists
 def list_union(l1, l2):
@@ -67,7 +56,7 @@ def get_dialogue(filename):
         return [line.strip() for line in f.readlines()]
 
 
-def get_inference(text, inference, obligations, skill_classifier=None):
+def get_inference(text, inference, obligations):
     # Inference is the file that contains the inference results
     # Text is the file that contains the conversation log
     with open(text, 'r') as f:
@@ -84,12 +73,6 @@ def get_inference(text, inference, obligations, skill_classifier=None):
     for i, (inf_line, obligation_line) in enumerate(zip(inf_lines, obligations_lines)):
         skills_inf.append([skill for skill in skill_enum if skill.upper() in inf_line])
         skills_obl.append([skill for skill in skill_enum if skill.upper() in obligation_line])
-
-    # Add any skills for each turn detected by classifier (if not present already)
-    if skill_classifier:
-        for i, _ in enumerate(skills_inf):
-            skills = classify_skills(text_lines[i], skill_classifier)
-            skills_inf[i] = list_union(skills, skills_inf[i])
 
     explicit_word_limit = 400
     # Flag all turns in which one of the three E's was used
