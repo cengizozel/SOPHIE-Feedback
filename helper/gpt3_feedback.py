@@ -18,9 +18,9 @@ def get_feedback(prompt):
 
 def run_gpt(transcript, three_es, missed_opportunities, module_type):
     module_type_to_file = {
-        "Empathy": "empathize",
-        "Explicit": "explicit",
-        "Empowering": "empower",
+        "Empathize": "empathize",
+        "be Explicit": "explicit",
+        "Empower": "empower",
         "Master": "master"
     }
 

@@ -8,6 +8,9 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipe
 
 cache = Cache(config={'CACHE_TYPE': 'null'})
 
+# import logging
+# log = logging.getLogger('werkzeug')
+# log.setLevel(logging.ERROR)
 
 def create_pdf():
     pdf_gen.generate_pdf(processed_file, gpt3_response, module_type, three_es, compute_metrics.main())
@@ -50,11 +53,11 @@ if __name__ == '__main__':
     global three_es, missed_opportunities
     global module_type
 
-    # 1 == Empathy
-    # 2 == Explicit
-    # 3 == Empowering
+    # 1 == Empathize
+    # 2 == be Explicit
+    # 3 == Empower
     # 4 == Master
-    module_type = "Master"
+    module_type = "Empathize"
     
     # root_path = "docs/conversation-log-obligations/"
     root_path = "E:/SOPHIE/eta/io/conversation-log/0/"
@@ -89,4 +92,4 @@ if __name__ == '__main__':
 
     create_pdf()
     
-    app.run(debug=True)
+    app.run(debug=True, use_reloader=False)

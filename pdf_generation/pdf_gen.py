@@ -11,6 +11,29 @@ import turn_taking
 import compute_metrics
 
 
+# Return the line numbers where explicit lines are too long (lecturing)
+def get_lecturing():
+    dialogue_file = "E:/SOPHIE/eta/io/conversation-log/0/text_processed.txt"
+    # with open(dialogue_file, "r") as f:
+    #     dialogue_lines = f.readlines()
+    clinician_lines = []
+    with open(dialogue_file, "r") as f:
+        for line in f.readlines():
+            if not line.startswith("Sophie Hallman"):
+                clinician_lines.append(line)
+
+    explicit_word_limit = 400
+    lecturing_list = []
+
+    for i, line in enumerate(clinician_lines):
+        # print(f"Length: {len(line)}, Line: {line}")
+        if len(line) > explicit_word_limit:
+            lecturing_list.append(2*i+1)
+    
+    # print(f"Lecturing list: {lecturing_list}")
+
+    return lecturing_list
+
 def generate_pdf(transcript_file, gpt3_response, module_type, three_es, feedback_json):
     tips_path = "docs/tips/"
 
@@ -24,7 +47,7 @@ def generate_pdf(transcript_file, gpt3_response, module_type, three_es, feedback
 
     # Create a cell that can take multiple lines
     pdf.set_font('arial', size=20, style='B')
-    pdf.cell(190, 20, txt="Feedback for Clinician on MVP Protocol", ln=1, align='C', border=True)
+    pdf.cell(190, 20, txt="Suggestion for Clinician", ln=1, align='C', border=True)
     pdf.ln(10)
     pdf.set_font('arial', size=12)
     pdf.multi_cell(190, 7, txt=gpt3_response, align='L')
@@ -41,15 +64,15 @@ def generate_pdf(transcript_file, gpt3_response, module_type, three_es, feedback
         index = 0
         for line in f.readlines():
             txt=line
-            if index in [x[1] for x in three_es if x[0] == "Empowering"]:
+            if index in [x[1] for x in three_es if x[0] == "Empower"]:
                 pdf.set_text_color(0, 200, 0)
-                txt = f"{line.rstrip()}    >> " + "Empowering\n"
-            elif index in [x[1] for x in three_es if x[0] == "Explicit"]:
+                txt = f"{line.rstrip()}    >> " + "Empower\n"
+            elif index in [x[1] for x in three_es if x[0] == "be Explicit"]:
                 pdf.set_text_color(0, 200, 0)
-                txt = f"{line.rstrip()}    >> " + "Explicit\n"
-            elif index in [x[1] for x in three_es if x[0] == "Empathy"]:
+                txt = f"{line.rstrip()}    >> " + "be Explicit\n"
+            elif index in [x[1] for x in three_es if x[0] == "Empathize"]:
                 pdf.set_text_color(0, 200, 0)
-                txt = f"{line.rstrip()}    >> " + "Empathy\n"
+                txt = f"{line.rstrip()}    >> " + "Empathize\n"
             else:
                 pdf.set_text_color(0, 0, 0)
             pdf.set_font('arial', size=12)
@@ -60,7 +83,7 @@ def generate_pdf(transcript_file, gpt3_response, module_type, three_es, feedback
     bad_color = '#207068'
     good_color = '#9fefe7'
 
-    if module_type == "Empowering" or module_type == "Master":
+    if module_type == "Empower" or module_type == "Master":
         # Empower page
         empower = feedback["empower"]
         pdf.add_page()
@@ -87,7 +110,7 @@ def generate_pdf(transcript_file, gpt3_response, module_type, three_es, feedback
                 x=12, y=100, w=72, h=54)
         
         tt = empower["turn_taking"]
-        pdf.image(turn_taking.get_tt_graph(tt), x=0, y=158, w=200, h=60)
+        pdf.image(turn_taking.get_tt_graph(tt, get_lecturing()), x=0, y=158, w=200, h=60)
 
 
         # qs = empower["questions"]
@@ -116,6 +139,23 @@ def generate_pdf(transcript_file, gpt3_response, module_type, three_es, feedback
             open_ended_text = f"{oe} of your questions were open-ended."
         pdf.multi_cell(90, 10, txt=open_ended_text, ln=1, align='C', border=True)
         
+        if not get_lecturing() == []:
+            # add a legend that explains the colors of the graph
+            # add a red square to the left of legend
+            pdf.set_fill_color(255, 0, 0)
+            pdf.rect(26, 220, 10, 10, 'F')
+
+            pdf.set_font('arial', style="B", size=14)
+            pdf.set_xy(40, 220)
+            pdf.multi_cell(180, 10, txt="Lecturing Warning", ln=1, align='L', border=False)
+
+            # Add bordered text box under the turn taking graph
+            pdf.set_font('arial', size=14)
+            tt_text = "Be careful not to lecture the patient. Breaking up your speech into smaller chunks and allowing the patient to speak will help you avoid lecturing. "
+            
+            pdf.set_xy(20, 235)
+            pdf.multi_cell(170, 10, txt=tt_text, ln=1, align='C', border=False)
+        
         pdf.add_page()
         pdf.set_font('arial', size=30, style='B')
 
@@ -132,7 +172,7 @@ def generate_pdf(transcript_file, gpt3_response, module_type, three_es, feedback
                 pdf.multi_cell(190, 7, txt=tip, align='L')
 
 
-    if module_type == "Explicit" or module_type == "Master":
+    if module_type == "be Explicit" or module_type == "Master":
         # Be Explicit page
         explicit = feedback["explicit"]
         pdf.add_page()
@@ -219,7 +259,7 @@ def generate_pdf(transcript_file, gpt3_response, module_type, three_es, feedback
                 pdf.multi_cell(190, 7, txt=tip, align='L')
 
 
-    if module_type == "Empathy" or module_type == "Master":
+    if module_type == "Empathize" or module_type == "Master":
         # Empathize page
         # empathize = feedback["empathize"]
         # pdf.add_page()
@@ -236,7 +276,7 @@ def generate_pdf(transcript_file, gpt3_response, module_type, three_es, feedback
         pdf.set_font('arial', size=30, style='B')
 
         # Title
-        pdf.cell(190, 20, txt="Empathy - Tips and Examples", ln=1, align='C', border=True)
+        pdf.cell(190, 20, txt="Empathize - Tips and Examples", ln=1, align='C', border=True)
         # Add an empty line
         pdf.ln(10)
 

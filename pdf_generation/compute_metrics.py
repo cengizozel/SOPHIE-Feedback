@@ -179,7 +179,7 @@ def get_turn_taking(times_file):
         times_list = file.readlines()
         for timing in times_list:
             timing_info = timing.split(", ")[-1].replace(")", "").strip()
-            print(f"Adding {timing_info} to total time")
+            # print(f"Adding {timing_info} to total time")
             total_time += int(float(timing_info))-1.875# rounded downm to account for transition time
             end_times.append(total_time)
 

@@ -3,8 +3,8 @@ import numpy as np
 import io
 from PIL import Image
 
-def get_tt_graph(x_list):
-    print("x_list:", x_list)
+def get_tt_graph(x_list, lecturing):
+    # print("x_list:", x_list)
     plt.figure(figsize=(10, 3))
     plt.title("Turn Taking", fontsize=16, fontweight='bold')
 
@@ -14,8 +14,12 @@ def get_tt_graph(x_list):
     num_turns = len(x)
     conversation_length = x_list[-1]
 
+    sophie_color = '#0000FF'
+    you_color = '#FFD700'
+
     labels = ["SOPHIE", "You"]
-    colors = ["red" if y_i else "blue" for y_i in y]
+    colors = [(1, 0, 0) if i in lecturing else you_color if y_i else sophie_color for i, y_i in enumerate(y)]
+    # colors = ["red" if y_i else "blue" for y_i in y]
 
     width = [] * num_turns
 
