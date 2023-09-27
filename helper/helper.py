@@ -1,5 +1,8 @@
 import re
 
+NAME_AGENT = "Sophie Hallman"
+NAME_USER = "Doctor"
+
 # function that returns text from a txt file
 def get_text(filename):
     with open(filename, 'r') as f:
@@ -20,9 +23,12 @@ def convert_text(filename, output_filename):
         to_capitalize = [[" i ", " I "], ["i'm", "I'm"], ["i've", "I've"], ["sophie", "SOPHIE"]]
         lines = f.readlines()
         for i, line in enumerate(lines):
-            # Removing last character (space) from name
-            name = line.split(":")[0][:-1]
-            sentence = line.split(":")[1]
+            # Split off agent
+            parts = line.split(':')
+            agent = parts[0]
+            sentence = parts[1]
+            # Set name based on agent
+            name = NAME_AGENT if agent.strip() == '^me' else NAME_USER
             # Delete all the text between "[" and "]" using regex
             sentence = re.sub(r'\[.*?\]', '', sentence)
             # Make all letters lowercase
@@ -44,11 +50,14 @@ def convert_text(filename, output_filename):
                 sentence_list[j] = s[0].upper() + s[1:]
             # Join the sentences back together
             sentence = " ".join(sentence_list)
+            # Capitalize specific words
             for tc in to_capitalize:
                 sentence = sentence.replace(tc[0], tc[1])
+            # Add agent name
             lines[i] = name + ": " + sentence
     with open(output_filename, 'w') as f:
         f.writelines(lines)
+
 
 # function that takes a txt filename as input and returns a list of lines in the file without the newline character
 def get_dialogue(filename):
@@ -71,13 +80,13 @@ def get_inference(text, inference, obligations):
     skills_inf, skills_obl = [], []
     skill_enum = ["empowering", "explicit", "empathetic"]
     for i, (inf_line, obligation_line) in enumerate(zip(inf_lines, obligations_lines)):
-        skills_inf.append([skill for skill in skill_enum if skill.upper() in inf_line])
-        skills_obl.append([skill for skill in skill_enum if skill.upper() in obligation_line])
+        skills_inf.append([skill for skill in skill_enum if skill in inf_line])
+        skills_obl.append([skill for skill in skill_enum if skill in obligation_line])
 
     explicit_word_limit = 400
     # Flag all turns in which one of the three E's was used
     for i, skills in enumerate(skills_inf):
-        if not text_lines[i].startswith("Sophie Hallman"): # and "Let's pause here for feedback on this conversation." not in text_lines[i] -> Sophie says this anyway
+        if not text_lines[i].startswith(NAME_AGENT): # and "Let's pause here for feedback on this conversation." not in text_lines[i] -> Sophie says this anyway
             if "empowering" in skills:
                 three_es.append(["Empower", i, text_lines[i-1], text_lines[i]])
             if "explicit" in skills:
@@ -97,7 +106,7 @@ def get_inference(text, inference, obligations):
     # Flag all clinician turns in which there was a missed obligation to use one of the three E's
     for i, skills in enumerate(skills_obl):
         if i < len(obligations_lines)-1:
-            if not text_lines[i+1].startswith("Sophie Hallman"):
+            if not text_lines[i+1].startswith(NAME_AGENT):
                 # print(f"Checking {skills_inf[i+1]}")
                 # print("explicit" in skills_inf[i+1])
                 # print(skills_inf[i+1] == ['explicit'])

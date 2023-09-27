@@ -4,7 +4,6 @@ import helper.helper as helper
 import helper.gpt3_feedback as gpt3_feedack
 import pdf_generation.compute_metrics as compute_metrics
 import pdf_generation.pdf_gen as pdf_gen
-from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
 
 cache = Cache(config={'CACHE_TYPE': 'null'})
 
@@ -60,7 +59,7 @@ if __name__ == '__main__':
     module_type = "Empathize"
     
     # root_path = "docs/conversation-log-obligations/"
-    root_path = "E:/SOPHIE/eta/io/conversation-log/0/"
+    root_path = "E:/SOPHIE/eta-py/io/sophie-gpt/doctor/conversation-log/"
     inference_file = root_path+"pragmatic.txt"
     obligations_file = root_path+"obligations.txt"
     text_file = root_path+"text.txt"
