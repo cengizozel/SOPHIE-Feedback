@@ -293,7 +293,7 @@ def get_reading_level(clinician_lines):
 def main():
     times_file = "E:/SOPHIE/end-of-life-chat-gpt3/times.txt" # only for speaking rate
     # dialogue_file = "docs/conversation-log-obligations/text_processed.txt"
-    dialogue_file = "E:/SOPHIE/eta/io/conversation-log/0/text_processed.txt"
+    dialogue_file = "E:/SOPHIE/eta-py/io/sophie-gpt/doctor/conversation-log/text_processed.txt"
     dialogue_lines = []
     with open(dialogue_file, "r") as f:
         dialogue_lines = f.readlines()

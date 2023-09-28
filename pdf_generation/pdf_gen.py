@@ -13,7 +13,7 @@ import compute_metrics
 
 # Return the line numbers where explicit lines are too long (lecturing)
 def get_lecturing():
-    dialogue_file = "E:/SOPHIE/eta/io/conversation-log/0/text_processed.txt"
+    dialogue_file = "E:/SOPHIE/eta-py/io/sophie-gpt/doctor/conversation-log/text_processed.txt"
     # with open(dialogue_file, "r") as f:
     #     dialogue_lines = f.readlines()
     clinician_lines = []
