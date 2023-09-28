@@ -1,16 +1,6 @@
-The MVP (Medical situation, Values, Plan) communication protocol defines how doctors should communicate information about serious illness to their patients. The protocol stands on 3 major skills from doctors named 3E's: Empower, be Explicit, Empathize.
+The MVP (Medical situation, Values, Plan) communication protocol defines how doctors should communicate information about serious illness to their patients. The protocol stands on 3 major skills from doctors named 3E's: Empower, be Explicit, Empathize. This module will focus only on the Empathize skill.
 
-A. Empower
-- Listen
-- Ask first
-- Calibrate
-
-B. be Explicit
-Share the facts
-- Precisely
-- Concisely
-
-C. Empathize
+Empathize
 Emotion
 - Anticipate & Recognize
 - Validate & Explore
@@ -19,64 +9,18 @@ Emotion
 Here is a conversation between a clinician and patient.
 
 Sophie Hallman: Hi, doctor. I'm meeting with you today to help get some questions answered about my condition.
-Sophie Hallman: I'm really worried about why my pain has been getting worse recently. Do you have any ideas of why that might be?
-Dr. Tom Carroll: I am not sure, SOPHIE.
-Sophie Hallman: I'm still trying to understand what's going on with me. I feel reasonably well otherwise, except for the pain. What do you think is causing the pain?
-Dr. Tom Carroll: Sophie, I am really sorry that you are in a lot of pain. I am. I am really, really sorry to hear that. But there could be one thing that I could tell you now.
-Sophie Hallman: I think I'm ready to hear about my condition now. Please, tell me what you know.
-Dr. Tom Carroll: Sophie and I really wish things were different, but according to your scans, your cancer is not responding well to treatments.
-Sophie Hallman: Oh no. Does this mean that it has spread?
-Dr. Tom Carroll: I am afraid so. Sophie, your cancer has spread and it does not look like we are going to stop it.
-Sophie Hallman: I don't know what to say. This is so hard to hear.
-Dr. Tom Carroll: I know this. I know this news was not what you wanted to hear today.
-Sophie Hallman: I understand my condition is bad, but I really need to know how long I have. I need you to be honest with me, and tell me the truth.
-Dr. Tom Carroll: Sophie, you have a few months left.
-Sophie Hallman: That's hard to hear. I just want to make sure I can still be there for my family. I don't want to let them down, especially at a special moment like my grandson's graduation. Is that something I can still do?
-Dr. Tom Carroll: Maybe SOPHIE? When does your grandson graduate?
-Sophie Hallman: His graduation is in three weeks.
-Dr. Tom Carroll: Ohh, no, SOPHIE, I do not know if you are going to make it, but we can do everything possible to keep you alive.
-Sophie Hallman: I don't quite understand what you mean by that. Could you explain your prognosis to me a bit more clearly?
-Dr. Tom Carroll: Yes, SOPHIE, we have had cases where people with your cancer have died in a few weeks, but we have also had them live as long as a year.
-Sophie Hallman: That's really hard to comprehend. What does that mean for me? Is there a chance that i'll be able to watch my grandson graduate?
-Dr. Tom Carroll: Yes, I think your chances are very good and we can make that happen.
-Sophie Hallman: That sounds promising. Can you tell me more about what my options are for treatment?
-Dr. Tom Carroll: I can you can do these this treatment acts or you could do a treatment y. Treatment x is more comfortable, but y is a little bit more experimental.
-Sophie Hallman: I think I would like to try the one that is more comfortable. What are the risks associated with it?
-Dr. Tom Carroll: The risks are very minimal. What you are talking about is comfort care, and that means we treat the symptoms of the cancer like your pain, your mood, things like that. We do not treat the cancer itself.
-Sophie Hallman: I understand, but I'm still not sure how comfort care works. Can you explain it to me?
-Dr. Tom Carroll: Yes, comfort care works where people come in and check on you at regular intervals and administer medications like pain medication, stuff for your mood, things like that.
-Sophie Hallman: That sounds like a really helpful option. But do you think chemotherapy is something that I should consider now?
-Dr. Tom Carroll: What are your treatment goals, SOPHIE?
-Sophie Hallman: I want to be able to spend more time with my grandson, and also to maintain a high quality of life. That's my main priority.
-Dr. Tom Carroll: What is what is a high quality of life mean to you?
-Sophie Hallman: To me, a high quality of life means being able to spend time with my family, being able to do activities that I enjoy, and most importantly, being pain-free.
-Dr. Tom Carroll: I agree with that definition, and if that is the case, I really do not think you should do chemotherapy.
-Sophie Hallman: I appreciate your advice. I need to think more about this and discuss it with my family, but I'm glad to have more information now.
-Dr. Tom Carroll: What other information would you like?
-Sophie Hallman: I think I have enough for now, but I may have more questions later. Thank you for your help.
-Dr. Tom Carroll: You are welcome. As your physician, I am here to do anything that you asked me to do, and please call me if anything comes up. You have my cell phone number.
-Sophie Hallman: I will. Thank you again.
-Dr. Tom Carroll: You are welcome, SOPHIE, and if you want me to be there with your family as you go over everything, I am happy to do that.
-Sophie Hallman: That would be really nice. Thank you.
-Dr. Tom Carroll: You are welcome. Is there anything else you need today or shall we, uh, let this news sink in and and touch base in a few days?
-Sophie Hallman: I think i'll take some time to process this. I'll call you in a few days.
-Dr. Tom Carroll: Sounds great, SOPHIE. Hang in there.
-Sophie Hallman: Thank you.
-Dr. Tom Carroll: Goodbye SOPHIE.
-Sophie Hallman: Thank you for taking the time to meet with me today. I really appreciate it. Bye.
+Sophie Hallman: I've noticed that my pain has been getting worse recently. Can you help me understand why that might be happening?
+Doctor: Hi SOPHIE, how are you doing today?
+Sophie Hallman: I appreciate your support, but I think I'm ready to hear about my condition now. I've been experiencing more pain lately, and I'm curious to know why that might be.
+Doctor: Sophie, do you remember how we took those scans last week?
+Sophie Hallman: What can you tell me about my condition?
+Doctor: Sophie I'm afraid I have some bad news.
+Sophie Hallman: Actually, I think we should come back to my condition in a later appointment. This has been a lot to take in. Does this mean I should be prepared for something serious?
+Doctor: So if you, we definitely can put off breaking the news to you. But yes, you should be prepared. You should be prepared for something serious.
+Sophie Hallman: Thank you for being honest with me, doctor. I know it's not easy to deliver bad news, but I appreciate your straightforwardness. I'll need some time to process everything before we discuss the details further. But I just wanted to say thank you for being here for me and answering my questions. It means a lot to have your support during this difficult time.
+Doctor: Time.
+Sophie Hallman: Let's pause here for feedback on this conversation.
 
-
-Examples of Empower skill from transcipt:
-Nothing.
-
-Missed opportunities of Empower skill:
-Nothing.
-
-Example of be Explicit skill from transcript:
-Nothing.
-
-Missed opportunities of be Explicit skill:
-Nothing.
 
 Examples of the Empathize skill from transcript:
 Nothing.
@@ -85,4 +29,4 @@ Missed Opportunities of Empathize skill here:
 Nothing.
 
 
-You are a communication expert in Empower, be Explicit and Empathize in medicine with 30 years plus of experience. Pick one missed opportunity to demonstrate a skill and give alternative examples of what they could have said. Make sure to be specific about the skills used.
+You are a communication expert in the Empathize skill in medicine with 30 years plus of experience.  Pick one missed opportunity to demonstrate a skill and give alternative examples of what they could have said. Make sure to be specific about the skill used.

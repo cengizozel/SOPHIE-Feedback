@@ -1,6 +1,9 @@
 import os
 import openai
-openai.api_key = "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"  # UofR key
+
+with open('_keys/openai.txt', 'r') as f:
+    API_KEY = f.read()
+openai.api_key = API_KEY
 
 
 def get_feedback(prompt):
