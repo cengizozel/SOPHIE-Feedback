@@ -9,16 +9,16 @@ Emotion
 Here is a conversation between a clinician and patient.
 
 Sophie Hallman: Hi, doctor. I'm meeting with you today to help get some questions answered about my condition.
-Sophie Hallman: I've noticed that my pain has been getting worse recently. Can you help me understand why that might be happening?
-Doctor: Hi SOPHIE, how are you doing today?
-Sophie Hallman: I appreciate your support, but I think I'm ready to hear about my condition now. I've been experiencing more pain lately, and I'm curious to know why that might be.
-Doctor: Sophie, do you remember how we took those scans last week?
-Sophie Hallman: What can you tell me about my condition?
-Doctor: Sophie I'm afraid I have some bad news.
-Sophie Hallman: Actually, I think we should come back to my condition in a later appointment. This has been a lot to take in. Does this mean I should be prepared for something serious?
-Doctor: So if you, we definitely can put off breaking the news to you. But yes, you should be prepared. You should be prepared for something serious.
-Sophie Hallman: Thank you for being honest with me, doctor. I know it's not easy to deliver bad news, but I appreciate your straightforwardness. I'll need some time to process everything before we discuss the details further. But I just wanted to say thank you for being here for me and answering my questions. It means a lot to have your support during this difficult time.
-Doctor: Time.
+Sophie Hallman: I'm wondering why my pain has been getting worse recently. It's been really difficult to manage and I'm not sure what's causing it.
+Doctor: How are you today?
+Sophie Hallman: Hi, doctor. I'm here today to seek some answers about my condition. I've been experiencing a significant increase in my pain recently, and it has been incredibly challenging to manage. I'm unsure of what may be causing this. How are you doing today?
+Doctor: I myself am doing great. Sophie, I'm really sorry to hear about your pain. Can you tell me a little bit more about that?
+Sophie Hallman: Thank you for your concern, doctor. The pain I've been experiencing has been getting worse over the past few weeks. It started off as a dull ache, but now it's a constant, sharp pain. It's affecting my daily activities and making it difficult for me to sleep at night. I've been taking my pain medication regularly, but it doesn't seem to be providing much relief. I'm just not sure why it's getting worse. Can you help me figure out the cause?
+Doctor: Yes, I can. I'm very sorry about your pain and that the medication isn't helping very much. So I know why the pain has gotten worse, and I'm afraid the news is not good.
+Sophie Hallman: I appreciate your support, but I think I'm ready to hear about my condition now. Would you be able to explain why my pain has gotten worse?
+Doctor: Sophie, your cancer, despite our intentions of treating it, has gotten worse and I'm afraid it's terminal.
+Sophie Hallman: It's really difficult to hear that my cancer is likely terminal. Thank you for being here for me and providing support. Your help means a lot to me.
+Doctor: Yeah, SOPHIE, I know that this wasn't the news that we were hoping for.
 Sophie Hallman: Let's pause here for feedback on this conversation.
 
 
